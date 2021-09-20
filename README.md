@@ -4,3 +4,13 @@ CVE-2021-40875: Improper Access Control in Gurock TestRail versions < 7.2.0.3014
 # Summary
 Why use this script? Why not just build a standard list of sensitive files? 
 Building a custom list would certainly work, however, in many cases it was observed that the TestRail application had custom files - which would be good to check during the recon phase.
+
+# Usage
+
+```bash
+
+git clone https://github.com/SakuraSamuraii/derailed.git
+cd ./derailed
+bash  derailed.sh 'https://target'
+
+```
