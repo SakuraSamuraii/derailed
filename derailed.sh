@@ -4,7 +4,7 @@
 # Copyright:    sickcodes (C) 2021
 # License:      GPLv3+
 
-TARGET="${1}
+TARGET="${1}"
 
 mkdir -p ./output
 
