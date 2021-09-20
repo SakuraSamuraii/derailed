@@ -14,7 +14,7 @@ cd ./output
 
 touch ./accessible.log
 
-FILE_LIST=/files.md5.txt
+FILE_LIST=./files.md5.txt
 
 # fetch an updated files.md5, if it comes in a future version
 # curl "${TARGET}/files.md5" > ./files.md5
