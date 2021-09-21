@@ -4,6 +4,9 @@
 # Copyright:    sickcodes (C) 2021
 # License:      GPLv3+
 
+# stop null byte error while curling
+shopt -s nullglob
+
 ! [ "${1}" ] && { echo "No target was specified. ./script.sh 'https://target/'" && exit 1 ; }
 
 TARGET="${1}"
@@ -47,12 +50,19 @@ while read -r HASH SUFFIX; do
             ;;
         *'.exe' ) continue
             ;;
+        # *'.add_your_own' ) continue
+        #     ;;
     esac
 
-    # feth the page, following redirects
+    # peek at page response
+    # doesn't work because gurock returns 200 and prints the error in plaintext
+    # curl -s -I -X POST "${TESTING_URL}"
+
+    # feth the page, following redirects, to a variable
     OUTPUT_DATA="$(curl -L -vvvv "${TESTING_URL}")"
 
-    # continue any pages that are "denied access" or "direct script access"
+    # find matching disqualifying pharses in the page contents
+    # and pass any pages that are "denied access" or "direct script access"
     case "${OUTPUT_DATA}" in
         *'No direct script'* ) continue
             ;;
