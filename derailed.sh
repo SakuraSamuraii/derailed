@@ -50,6 +50,8 @@ while read -r HASH SUFFIX; do
             ;;
         *'.exe' ) continue
             ;;
+        *'.pdf' ) continue
+            ;;
         # *'.add_your_own' ) continue
         #     ;;
     esac
